@@ -15,15 +15,14 @@ export class App extends Component {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
 
-    if (parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
+    parsedContacts && this.setState({ contacts: parsedContacts });
   }
 
   componentDidUpdate(_, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
+    const { contacts } = this.state;
+
+    contacts !== prevState.contacts &&
+      localStorage.setItem('contacts', JSON.stringify(contacts));
   }
 
   addNewContacts = (newContact, { action }) => {
