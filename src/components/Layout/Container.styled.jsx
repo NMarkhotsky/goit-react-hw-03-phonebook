@@ -6,5 +6,5 @@ export const Container = styled.div`
 
   border-radius: 20px;
 
-  background-color: #0c3078;
+  background-color: #0c3079;
 `;
